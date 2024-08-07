@@ -1,6 +1,6 @@
 pipeline {
     environment {
-    imagename = "backend1"
+    imagename = "backend"
     jenkinsProject = 'calculator-webapp-backend'
   }
 
@@ -21,9 +21,9 @@ pipeline {
 
             steps{
                 sh 'sudo su - jenkins -s/bin/bash'
-                #sh 'sudo docker stop $imagename'
-                #sh 'sudo docker rm $imagename'
-                #sh 'sudo docker rmi $imagename'
+                sh 'sudo docker stop $imagename'
+                sh 'sudo docker rm $imagename'
+                sh 'sudo docker rmi $imagename'
                 sh 'sudo docker image build -t  $imagename .'
 
             }
